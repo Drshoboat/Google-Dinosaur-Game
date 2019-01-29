@@ -33,9 +33,9 @@ public class MyWorld extends World
     private void prepare()
     {
         MemeDinoBoi memeDinoBoi = new MemeDinoBoi();
-        //CurrentScore score = new CurrentScore();
+        CurrentScore score = new CurrentScore();
         Cactii cactii = new Cactii();
-        //addObject(score, getWidth() - 100, 200);
+        addObject(score, 600, -10);
         addObject(new Cloud(), 800, 50);
         addObject(new floor(), 400,285);
         addObject(memeDinoBoi, 99, getHeight()/2);

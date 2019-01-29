@@ -16,13 +16,13 @@ public class CurrentScore extends Actor
     public int hscore = 0;
     private UserInfo player;
 
-    public void CurrentScore() {
+    public  CurrentScore() {
         if (UserInfo.isStorageAvailable()) {
                 player = UserInfo.getMyInfo();
                 player.setScore(0);//hscore
                 player.store();
             }
-        //updateScore();
+        
     }
 
     public void act()
@@ -35,8 +35,10 @@ public class CurrentScore extends Actor
 
     public void addedToWorld(World world)
     {
-            setImage(new GreenfootImage("Hi-Score: " + player.getScore() + "Score : " + score, 27, new Color(8, 204, 93), null));
-        setLocation(600,20);
+        highScore();
+        updateScore();
+        getWorld().showText("Hi-Score: " + player.getScore(), 550,25);
+        getWorld().showText("Score: " + score, 725, 25);
     }
 
     public void whatsDaScore() {
@@ -56,14 +58,15 @@ public class CurrentScore extends Actor
 
            player.setScore(hscore);
            player.store();
+           updateScore();
            //System.out.println(player.getScore());
         }
 
     }
 
     public void updateScore() {
-        setImage(new GreenfootImage("High-Score : " + hscore + "       Score : " + score, 27, new Color(8, 204, 93), null));
-        setLocation(600,20);
+        getWorld().showText("Hi-Score: " + player.getScore(), 550,25);
+        getWorld().showText("Score: " + score, 725, 25);
     }
 
 }
