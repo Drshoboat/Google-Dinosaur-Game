@@ -13,31 +13,29 @@ public class CurrentScore extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public int score = 0;
-    public int hscore = 0;
+    public int hscore;
     private UserInfo player;
 
     public  CurrentScore() {
         if (UserInfo.isStorageAvailable()) {
                 player = UserInfo.getMyInfo();
-                player.setScore(0);//hscore
+                player.getScore();//hscore
                 player.store();
             }
-        
+        hscore = player.getScore();
     }
 
     public void act()
     {
         whatsDaScore();//29
-        if(getWorld().getObjects(null).size() == 0) {
-            highScore();
-        }
+        highScore();
     }
 
     public void addedToWorld(World world)
     {
         highScore();
         updateScore();
-        getWorld().showText("Hi-Score: " + player.getScore(), 550,25);
+        getWorld().showText("Hi-Score: " + highScore(), 550,25);
         getWorld().showText("Score: " + score, 725, 25);
     }
 
@@ -49,19 +47,24 @@ public class CurrentScore extends Actor
         //player.setScore(score);//43
         //player.store();
         updateScore();
-
     }
-
-    public void  highScore() {
+    
+    
+    public int  highScore() {
        if(getWorld().getObjects(null).size() == 0 && score > hscore) {
-           hscore = score;
-
-           player.setScore(hscore);
+           player.setScore(score);//sets highscore
            player.store();
+           hscore = score;
            updateScore();
+           
            //System.out.println(player.getScore());
         }
-
+        if(score > hscore) {
+           player.setScore(score);
+           player.store();
+           updateScore();
+        }
+        return hscore;
     }
 
     public void updateScore() {

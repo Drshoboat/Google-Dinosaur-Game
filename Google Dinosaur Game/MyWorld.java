@@ -49,8 +49,8 @@ public class MyWorld extends World
     public void act(){
         if(getObjects(Cactii.class).get(0).getX() < -100) {
             removeObjects(getObjects(Cactii.class));
-            for(int i = 0; i < (int)(Math.random() * 2) + 2; i++){
-                addObject(new Cactii(), (int)(Math.random()* 110) + 850, getHeight()/2);
+            for(int i = 0; i < (int)(Math.random() * 2) + 3; i++){
+                addObject(new Cactii(), (int)(Math.random()* 240) + 850, getHeight()/2);
             }
         }
         

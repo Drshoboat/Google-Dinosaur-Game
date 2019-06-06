@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CurrentScore
-comment0.text=\n\ Write\ a\ description\ of\ class\ CurrentScore\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ CurrentScore\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=CurrentScore()
 comment2.params=
@@ -10,7 +10,7 @@ comment3.target=void\ addedToWorld(greenfoot.World)
 comment4.params=
 comment4.target=void\ whatsDaScore()
 comment5.params=
-comment5.target=void\ highScore()
+comment5.target=int\ highScore()
 comment6.params=
 comment6.target=void\ updateScore()
 numComments=7
